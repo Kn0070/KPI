@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPIForge • Manufacturing KPI Dashboard | Launch Your Data-Driven Factory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        :root {
+            --primary: #1e3a5f;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+        }
+
+        .nav-scrolled {
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        .feature-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .dashboard-preview {
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        
+        .dashboard-preview:hover {
+            transform: scale(1.02) rotate(1deg);
+            box-shadow: 0 35px 60px -15px rgb(0 0 0 / 0.5);
+        }
+
+        .metric {
+            transition: all 0.3s ease;
+        }
+
+        .section-header {
+            font-size: 2.75rem;
+            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .kpi-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+        }
+
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #1e3a5f;
+        }
+
+        .pricing-card {
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card.popular {
+            border-color: #1e3a5f;
+            box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <!-- Navbar -->
+    <nav id="navbar" class="bg-white border-b border-slate-200 sticky top-0 z-50 transition-all">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-8 py-5 flex items-center justify-between">
+                <div class="flex items-center gap-x-3">
+                    <div class="flex items-center gap-x-2">
+                        <div class="w-9 h-9 bg-[#1e3a5f] rounded-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-chart-line text-white text-3xl"></i>
+                        </div>
+                        <div>
+                            <span class="font-display text-3xl font-semibold tracking-tighter">KPIForge</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="#features" class="nav-link text-slate-600 hover:text-slate-900">Features</a>
+                    <a href="#how" class="nav-link text-slate-600 hover:text-slate-900">How it works</a>
+                    <a href="#pricing" class="nav-link text-slate-600 hover:text-slate-900">Pricing</a>
+                </div>
+                
+                <div class="flex items-center gap-x-4">
+                    <a href="#" class="hidden md:block px-5 py-2.5 text-sm font-semibold text-slate-700 hover:text-slate-900">Log in</a>
+                    <a href="#" 
+                       class="px-6 py-3 bg-[#1e3a5f] hover:bg-[#0f172a] transition-colors text-white text-sm font-semibold rounded-3xl flex items-center gap-x-2 shadow-sm">
+                        <span>Start Free Trial</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-bg text-white pt-16 pb-20">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7">
+                    <div class="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-3xl text-sm mb-6 border border-white/20">
+                        <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                        <span class="font-medium">Now with AI Forecasting &amp; Real-time Alerts</span>
+                    </div>
+                    
+                    <h1 class="text-6xl lg:text-7xl font-display tracking-tighter leading-none mb-6">
+                        The smartest KPI<br>dashboard for<br>manufacturers.
+                    </h1>
+                    
+                    <p class="max-w-lg text-xl text-white/80 mb-10">
+                        Import your Excel data. Get beautiful charts, accurate forecasts, and instant alerts. 
+                        Built for small &amp; mid-size manufacturers in Alabama and beyond.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#" 
+                           class="inline-flex items-center justify-center gap-x-3 bg-white text-[#1e3a5f] hover:bg-slate-100 transition-all px-9 py-4 rounded-3xl font-semibold text-lg shadow-xl hover:shadow-2xl">
+                            <span>Start 14-day free trial</span>
+                        </a>
+                        <a href="#demo" 
+                           class="inline-flex items-center justify-center gap-x-2 border border-white/40 hover:bg-white/10 transition-colors px-8 py-4 rounded-3xl font-semibold text-lg">
+                            <i class="fa-solid fa-play mr-2"></i>
+                            <span>Watch 2-min demo</span>
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center gap-x-8 mt-10 text-sm">
+                        <div class="flex -space-x-2">
+                            <img class="w-8 h-8 rounded-full ring-2 ring-white/70" src="https://i.pravatar.cc/32?img=28" alt="">
+                            <img class="w-8 h-8 rounded-full ring-2 ring-white/70" src="https://i.pravatar.cc/32?img=47" alt="">
+                            <img class="w-8 h-8 rounded-full ring-2 ring-white/70" src="https://i.pravatar.cc/32?img=12" alt="">
+                        </div>
+                        <div class="text-white/70 text-sm">
+                            Trusted by <span class="font-semibold text-white">180+</span> manufacturers
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Dashboard Preview -->
+                <div class="lg:col-span-5">
+                    <div class="dashboard-preview bg-white rounded-3xl p-2 shadow-2xl border border-slate-200">
+                        <img src="https://picsum.photos/id/1015/900/620" alt="KPIForge Dashboard Preview" 
+                             class="rounded-3xl w-full shadow-inner">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trust Bar -->
+    <div class="border-b border-slate-200 bg-white py-5">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-4 opacity-70">
+                <div class="font-semibold text-sm tracking-widest">HUNTSVILLE MANUFACTURING</div>
+                <div class="font-semibold text-sm tracking-widest">SOUTHERN STEEL GROUP</div>
+                <div class="font-semibold text-sm tracking-widest">PRECISION PARTS INC</div>
+                <div class="font-semibold text-sm tracking-widest">MIDSOUTH COMPONENTS</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div id="features" class="max-w-screen-2xl mx-auto px-8 py-20">
+        <div class="text-center mb-14">
+            <div class="inline px-4 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold tracking-[1.5px] rounded-3xl mb-3">POWERFUL &amp; SIMPLE</div>
+            <h2 class="section-header">Everything you need.<br>Nothing you don’t.</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Feature 1 -->
+            <div class="feature-card bg-white border border-slate-100 rounded-3xl p-8">
+                <div class="w-12 h-12 bg-[#1e3a5f] text-white rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-file-excel text-3xl"></i>
+                </div>
+                <h3 class="font-semibold text-2xl mb-3">Excel &amp; CSV Magic</h3>
+                <p class="text-slate-600">Drag &amp; drop your spreadsheets. Auto-detect columns and instantly calculate 15+ manufacturing KPIs including OEE, inventory turns, and on-time delivery.</p>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="feature-card bg-white border border-slate-100 rounded-3xl p-8">
+                <div class="w-12 h-12 bg-[#1e3a5f] text-white rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-chart-line text-3xl"></i>
+                </div>
+                <h3 class="font-semibold text-2xl mb-3">Fancy Interactive Visualizations</h3>
+                <p class="text-slate-600">10+ beautiful chart types powered by Plotly. Zoom, filter, hover — everything your team needs to spot trends instantly.</p>
+            </div>
+            
+            <!-- Feature 3 NEW -->
+            <div class="feature-card bg-white border border-emerald-200 rounded-3xl p-8 ring-1 ring-emerald-100">
+                <div class="flex items-center gap-x-3 mb-6">
+                    <div class="w-12 h-12 bg-emerald-600 text-white rounded-2xl flex items-center justify-center">
+                        <i class="fa-solid fa-robot text-3xl"></i>
+                    </div>
+                    <div class="px-3 py-1 text-xs font-bold bg-emerald-100 text-emerald-700 rounded-2xl">NEW</div>
+                </div>
+                <h3 class="font-semibold text-2xl mb-3">AI Forecasting &amp; Trends</h3>
+                <p class="text-slate-600">Predict future OEE, production volumes, and lead times using smart exponential smoothing. See confidence bands and act before problems appear.</p>
+            </div>
+            
+            <!-- Feature 4 NEW -->
+            <div class="feature-card bg-white border border-amber-200 rounded-3xl p-8 ring-1 ring-amber-100">
+                <div class="flex items-center gap-x-3 mb-6">
+                    <div class="w-12 h-12 bg-amber-500 text-white rounded-2xl flex items-center justify-center">
+                        <i class="fa-solid fa-bell text-3xl"></i>
+                    </div>
+                    <div class="px-3 py-1 text-xs font-bold bg-amber-100 text-amber-700 rounded-2xl">NEW</div>
+                </div>
+                <h3 class="font-semibold text-2xl mb-3">Real-time Alerts</h3>
+                <p class="text-slate-600">Set custom thresholds for OEE, defect rate, on-time delivery. Get instant visual alerts when metrics go out of bounds.</p>
+            </div>
+            
+            <div class="feature-card bg-white border border-slate-100 rounded-3xl p-8">
+                <div class="w-12 h-12 bg-[#1e3a5f] text-white rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-file-pdf text-3xl"></i>
+                </div>
+                <h3 class="font-semibold text-2xl mb-3">One-Click PDF &amp; Excel Reports</h3>
+                <p class="text-slate-600">Generate beautiful multi-page PDF reports with KPIs, charts, and summaries. Perfect for leadership meetings and compliance.</p>
+            </div>
+            
+            <div class="feature-card bg-white border border-slate-100 rounded-3xl p-8">
+                <div class="w-12 h-12 bg-[#1e3a5f] text-white rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-users text-3xl"></i>
+                </div>
+                <h3 class="font-semibold text-2xl mb-3">Built for Teams</h3>
+                <p class="text-slate-600">Multi-user access, role-based views, and easy sharing. Your entire production and supply chain team stays aligned.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- How it Works -->
+    <div id="how" class="bg-white border-y border-slate-100 py-16">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="text-center mb-12">
+                <h2 class="section-header">Get insights in under 60 seconds</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="text-center">
+                    <div class="mx-auto w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center mb-5">
+                        <span class="font-display text-4xl font-bold text-[#1e3a5f]">1</span>
+                    </div>
+                    <h4 class="font-semibold text-xl mb-2">Upload your data</h4>
+                    <p class="text-slate-600">Drag &amp; drop Excel or CSV. We automatically map your columns and calculate KPIs.</p>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center mb-5">
+                        <span class="font-display text-4xl font-bold text-[#1e3a5f]">2</span>
+                    </div>
+                    <h4 class="font-semibold text-xl mb-2">Explore &amp; visualize</h4>
+                    <p class="text-slate-600">Instant interactive charts, KPI cards, and powerful filters. No training required.</p>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center mb-5">
+                        <span class="font-display text-4xl font-bold text-[#1e3a5f]">3</span>
+                    </div>
+                    <h4 class="font-semibold text-xl mb-2">Act with confidence</h4>
+                    <p class="text-slate-600">Get forecasts, receive alerts, and export professional reports for your team.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing -->
+    <div id="pricing" class="max-w-screen-2xl mx-auto px-8 py-20">
+        <div class="text-center mb-12">
+            <h2 class="section-header">Simple pricing.<br>Grow as you scale.</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <!-- Starter -->
+            <div class="pricing-card bg-white border border-slate-200 rounded-3xl p-8">
+                <div class="mb-8">
+                    <div class="font-semibold">Starter</div>
+                    <div class="mt-4 flex items-baseline">
+                        <span class="text-6xl font-display font-semibold tracking-tighter">$29</span>
+                        <span class="text-slate-500 ml-1">/month</span>
+                    </div>
+                </div>
+                <ul class="space-y-3.5 text-sm mb-9">
+                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-500 mt-1"></i> Up to 3 users</li>
+                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-500 mt-1"></i> Excel/CSV import &amp; export</li>
+                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-500 mt-1"></i> All core visualizations</li>
+                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-500 mt-1"></i> Basic KPI calculations</li>
+                </ul>
+                <a href="#" class="block w-full text-center py-3.5 rounded-3xl border border-slate-300 hover:bg-slate-50 font-semibold">Start free trial</a>
+            </div>
+            
+            <!-- Pro - Popular -->
+            <div class="pricing-card popular bg-white border-2 border-[#1e3a5f] rounded-3xl p-8 relative">
+                <div class="absolute -top-3 right-8 bg-[#1e3a5f] text-white text-xs font-bold px-4 py-1 rounded-3xl">MOST POPULAR</div>
+                
+                <div class="mb-8">
+                    <div class="font-semibold">Professional</div>
+                    <div class="mt-4 flex items-baseline">
+                        <span class="text-6xl font-display font-semibold tracking-tighter">$79</span>
+                        <span class="text-slate-500 ml-1">/month</span>
+                    </div>
+                </div>
+                <ul class="space-y-3.5 text-sm mb-9">
+                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-500 mt-1"></i> Unlimited users</li>
+                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-500 mt-1"></i> <strong>AI Forecasting</strong> + Advanced charts</li>
+                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-500 mt-1"></i> <strong>Real-time Alerts</strong></li>
+                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-500 mt-1"></i> PDF + Excel professional reports</li>
+                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-500 mt-1"></i> Priority support + onboarding</li>
+                </ul>
+                <a href="#" class="block w-full text-center py-3.5 bg-[#1e3a5f] text-white rounded-3xl font-semibold hover:bg-[#0f172a]">Start 14-day free trial</a>
+            </div>
+            
+            <!-- Enterprise -->
+            <div class="pricing-card bg-white border border-slate-200 rounded-3xl p-8">
+                <div class="mb-8">
+                    <div class="font-semibold">Enterprise</div>
+                    <div class="mt-4 flex items-baseline">
+                        <span class="text-6xl font-display font-semibold tracking-tighter">$249</span>
+                        <span class="text-slate-500 ml-1">/month</span>
+                    </div>
+                </div>
+                <ul class="space-y-3.5 text-sm mb-9">
+                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-500 mt-1"></i> Everything in Pro</li>
+                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-500 mt-1"></i> SSO, audit logs, custom roles</li>
+                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-500 mt-1"></i> Dedicated success manager</li>
+                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-500 mt-1"></i> On-premise or private cloud option</li>
+                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-emerald-500 mt-1"></i> Custom integrations &amp; SLAs</li>
+                </ul>
+                <a href="#" class="block w-full text-center py-3.5 rounded-3xl border border-slate-300 hover:bg-slate-50 font-semibold">Talk to sales</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final CTA -->
+    <div class="bg-[#1e3a5f] text-white py-16">
+        <div class="max-w-screen-2xl mx-auto px-8 text-center">
+            <h2 class="text-4xl font-display tracking-tight mb-4">Ready to modernize your factory floor?</h2>
+            <p class="text-xl text-white/75 max-w-md mx-auto mb-8">Join hundreds of manufacturers using KPIForge to make better decisions faster.</p>
+            
+            <a href="#" class="inline-flex items-center justify-center bg-white text-[#1e3a5f] hover:bg-slate-100 transition-all px-10 py-4 text-lg font-semibold rounded-3xl">
+                Start your free trial today
+            </a>
+            <p class="text-xs text-white/50 mt-4">No credit card required • Cancel anytime</p>
+        </div>
+    </div>
+
+    <footer class="bg-slate-900 text-white/60 py-8 text-sm">
+        <div class="max-w-screen-2xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-y-4">
+            <div>© 2026 KPIForge. Built with ❤️ in Huntsville, Alabama.</div>
+            <div class="flex gap-x-6">
+                <a href="#" class="hover:text-white">Privacy</a>
+                <a href="#" class="hover:text-white">Terms</a>
+                <a href="#" class="hover:text-white">Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('nav-scrolled', 'bg-white/95', 'backdrop-blur-lg');
+            } else {
+                navbar.classList.remove('nav-scrolled', 'bg-white/95', 'backdrop-blur-lg');
+            }
+        });
+        
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent', '#1e3a5f');
+        }
+        window.onload = initializeTailwind;
+    </script>
+</body>
+</html>
